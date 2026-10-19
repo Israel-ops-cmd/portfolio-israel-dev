@@ -320,13 +320,13 @@ html.intro .me{opacity:0;translate:-50% 30px}
 
 /* projects: horizontal gallery */
 .hgal{background:var(--paper);color:var(--ink)}
-.hgal-pin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,4.5vh,52px);padding-top:76px}
+.hgal-pin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:clamp(24px,4vh,48px);padding-top:76px;padding-bottom:72px}
 .hgal-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
 .hgal-meta{display:flex;align-items:center;gap:14px;font-weight:700;font-size:.9rem;flex:none}
 .hg-bar{width:120px;height:3px;border-radius:3px;background:var(--line-d);overflow:hidden}
 .hg-bar i{display:block;height:100%;width:25%;background:var(--ink);border-radius:inherit;transition:width .3s}
 .hgal-track{display:flex;gap:clamp(16px,2vw,28px);padding:0 var(--gut);will-change:transform;width:max-content}
-.proj{position:relative;width:min(58vw,880px,calc((100svh - 300px)*1.6));aspect-ratio:16/10;flex:none;border-radius:var(--r-lg);overflow:hidden;background:var(--ink);color:var(--paper);isolation:isolate}
+.proj{position:relative;width:min(58vw,880px,calc((100svh - 340px)*1.6));aspect-ratio:16/10;flex:none;border-radius:var(--r-lg);overflow:hidden;background:var(--ink);color:var(--paper);isolation:isolate}
 .proj-link{position:absolute;inset:0;z-index:3;border-radius:inherit}
 .proj-link:focus-visible{outline-offset:-4px}
 .proj-img{position:absolute;inset:0;z-index:-1}
@@ -343,15 +343,20 @@ html.intro .me{opacity:0;translate:-50% 30px}
 .proj-btn svg{width:16px;height:16px;transition:rotate .4s var(--expo)}
 .proj:hover .proj-btn{gap:12px}
 .proj:hover .proj-btn svg{rotate:45deg}
-.proj.shot{background:radial-gradient(80% 60% at 70% 20%,rgba(242,240,235,.08),transparent 70%),var(--ink-2)}
-.proj.shot{display:flex;flex-direction:column;gap:clamp(12px,1.4vw,18px);padding:clamp(12px,1.6vw,20px)}
-.proj.shot .proj-img{position:relative;inset:auto;flex:1;min-height:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);z-index:0}
-.proj.shot .proj-info{position:static;padding:0 clamp(6px,1vw,14px) clamp(6px,1vw,12px)}
-.proj.shot .proj-img img{object-position:50% 0}
+.proj.shot{background:radial-gradient(70% 60% at 75% 10%,rgba(40,120,220,.35),transparent 70%),linear-gradient(180deg,#0d2240,#0B0B0F 78%)}
+.proj.shot .proj-img{inset:auto;top:50%;right:-3%;width:57%;aspect-ratio:16/10;height:auto;border-radius:12px;overflow:hidden;box-shadow:0 40px 70px -24px rgba(0,0,0,.8),0 0 0 1px rgba(242,240,235,.14);transform:translateY(-50%) perspective(1600px) rotateY(-14deg);transform-origin:100% 50%;transition:transform 1s var(--expo)}
+.proj.shot .proj-img img{object-position:0 0}
 .proj.shot .proj-img::after{display:none}
-.proj.shot .proj-n{display:none}
+.proj.shot:hover .proj-img{transform:translateY(-52%) perspective(1600px) rotateY(-6deg)}
+.proj.shot:hover .proj-img img{scale:1}
+.proj.shot .proj-info{right:47%;z-index:2}
+.proj.shot h3{font-size:clamp(1.5rem,2.3vw,2.5rem)}
+.proj.shot .proj-n{z-index:2}
+.hgal-head .h2{max-width:22ch;font-size:clamp(2rem,min(4.2vw,7.2vh),4rem)}
+.proj.shot:hover .proj-img{transform:perspective(1400px) rotateY(-3deg) rotateX(2deg) translateY(-6px)}
+.proj.shot:hover .proj-img img{scale:1}
 .proj-n{position:absolute;right:clamp(20px,2.6vw,34px);top:clamp(18px,2.4vw,30px);font-weight:900;font-size:.95rem;color:var(--paper);opacity:.8}
-.proj-end{position:relative;width:min(34vw,520px,calc((100svh - 300px)*1));flex:none;aspect-ratio:auto;border-radius:var(--r-lg);background:var(--ink);color:var(--paper);padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;justify-content:flex-end;gap:28px}
+.proj-end{position:relative;width:min(34vw,520px,calc((100svh - 340px)*1));flex:none;aspect-ratio:auto;border-radius:var(--r-lg);background:var(--ink);color:var(--paper);padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;justify-content:flex-end;gap:28px}
 .proj-end .proj-n{color:var(--lime)}
 .proj-end .h3{font-size:clamp(1.8rem,2.8vw,2.8rem);max-width:12ch}
 .proj-end .btn{align-self:flex-start}
@@ -377,7 +382,9 @@ html.intro .me{opacity:0;translate:-50% 30px}
 .proc-box p{color:var(--muted);margin:6px 0 18px}
 .proc-box .hours{border-top:1px solid var(--line);margin-bottom:22px}
 .proc-box .hours div{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
-.proc-box .hours span:first-child{font-weight:700}
+.proc-box .hours span:first-child{font-weight:700;display:inline-flex;align-items:center;gap:10px}
+.live{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(200,255,61,.6);animation:live 1.8s infinite}
+@keyframes live{70%{box-shadow:0 0 0 9px rgba(200,255,61,0)}100%{box-shadow:0 0 0 0 rgba(200,255,61,0)}}
 .tl{list-style:none;position:relative;padding-left:56px}
 .tl-line{position:absolute;left:17px;top:10px;bottom:10px;width:2px;background:var(--line-d)}
 .tl-line i{position:absolute;left:0;top:0;width:100%;height:100%;background:var(--ink);transform-origin:0 0;scale:1 0}
@@ -475,6 +482,10 @@ html.js [data-split].in .wi{translate:0 0}
   .hgal-track::-webkit-scrollbar{display:none}
   .proj{scroll-snap-align:start;width:86vw;max-width:560px;aspect-ratio:4/5}
   .proj-end{scroll-snap-align:start;width:70vw;max-width:400px}
+  .proj.shot{display:flex;flex-direction:column;justify-content:space-between;aspect-ratio:auto}
+  .proj.shot .proj-img{position:relative;top:auto;right:auto;width:auto;margin:22px 20px 0;transform:none!important}
+  .proj.shot .proj-info{position:relative;left:auto;right:auto;bottom:auto;padding:20px}
+  .proj.shot .proj-n{display:none}
   .proj p{font-size:.92rem}
 }
 @media (max-width:700px){
@@ -783,10 +794,10 @@ html.js [data-split].in .wi{translate:0 0}
         <b>Atendimento 100% online</b>
         <p>Para empresas de todo o Brasil, por WhatsApp e chamada de vídeo.</p>
         <div class="hours">
-          <div><span>Segunda a sexta</span><span>8h às 18h</span></div>
-          <div><span>Sábado</span><span>8h às 12h</span></div>
+          <div><span><i class="live" aria-hidden="true"></i>Disponível agora</span><span>todos os dias</span></div>
+          <div><span>Resposta</span><span>direto comigo, sem fila</span></div>
         </div>
-        <a class="btn btn-lime" data-wa data-magnetic href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Agendar pelo WhatsApp</a>
+        <a class="btn btn-lime" data-wa data-magnetic href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Chamar no WhatsApp</a>
       </div>
     </div>
     <ol class="tl" id="tl">
