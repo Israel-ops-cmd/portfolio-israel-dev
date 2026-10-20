@@ -136,11 +136,18 @@ section{position:relative;scroll-margin-top:76px}
 .card.type-card .big{position:absolute;left:14px;right:14px;top:18px;font-weight:900;font-size:calc(var(--cw,150px)*.2);line-height:.92;letter-spacing:-.04em}
 .card.type-card .tag{color:var(--ink)}
 .me{position:absolute;left:50%;bottom:0;translate:-50% 0;width:min(100%,600px);height:auto;z-index:2;
-  filter:drop-shadow(0 -10px 40px rgba(0,0,0,.65));
+  filter:drop-shadow(0 0 .6px rgba(255,248,236,.9)) drop-shadow(0 0 6px rgba(255,236,206,.28));
   -webkit-mask:linear-gradient(180deg,#000 80%,transparent 100%);mask:linear-gradient(180deg,#000 80%,transparent 100%)}
 .me-wrap{position:absolute;inset:0;z-index:2;pointer-events:none}
-.me-wrap::before{content:"";position:absolute;left:50%;bottom:0;translate:-50% 0;width:min(110%,680px);height:62%;
-  background:radial-gradient(50% 60% at 50% 60%,rgba(242,240,235,.10),transparent 70%)}
+/* backlight: soft studio light behind head and shoulders */
+.me-wrap::before{content:"";position:absolute;left:50%;bottom:14%;translate:-50% 0;width:min(100%,620px);aspect-ratio:1.1;
+  background:radial-gradient(closest-side,rgba(255,244,224,.72),rgba(255,236,206,.3) 38%,rgba(214,240,160,.07) 66%,transparent 100%);
+  filter:blur(8px);animation:backlight 7s ease-in-out infinite}
+.me-wrap::after{content:"";position:absolute;left:50%;bottom:0;translate:-50% 0;width:min(120%,760px);height:34%;
+  background:radial-gradient(50% 100% at 50% 100%,rgba(11,11,15,.9),transparent 100%)}
+@keyframes backlight{0%,100%{opacity:.85;scale:1}50%{opacity:1;scale:1.05}}
+html.intro .me-wrap::before{opacity:0}
+@media (prefers-reduced-motion:reduce){.me-wrap::before{animation:none}}
 
 /* intro resting states */
 html.intro .nav{opacity:0;translate:-50% -12px}
