@@ -24,7 +24,8 @@
 </script>
 <script>
   document.documentElement.classList.add('js');
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (/[?&]figma\b/.test(location.search)) document.documentElement.classList.add('figma');
+  else if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.documentElement.classList.add('intro');
     setTimeout(function(){document.documentElement.classList.remove('intro');}, 4000);
   }
@@ -148,6 +149,19 @@ section{position:relative;scroll-margin-top:76px}
 @keyframes backlight{0%,100%{opacity:.85;scale:1}50%{opacity:1;scale:1.05}}
 html.intro .me-wrap::before{opacity:0}
 @media (prefers-reduced-motion:reduce){.me-wrap::before{animation:none}}
+
+
+/* ?figma: static, fully revealed snapshot for design import */
+html.figma *,html.figma *::before,html.figma *::after{animation:none!important;transition:none!important}
+html.figma .cur,html.figma .cur-ring,html.figma #waFloat{display:none!important}
+html.figma .scard{position:relative;top:auto;scale:none!important;filter:none!important}
+html.figma .hgal{height:auto!important}
+html.figma .hgal-pin{position:relative;height:auto;padding:150px 0 120px}
+html.figma .hgal-track{transform:none!important;flex-wrap:wrap;width:auto}
+html.figma .proj{width:calc(50% - 14px)}
+html.figma .proj-end{width:calc(50% - 14px);aspect-ratio:16/10}
+html.figma .faq-head{position:static}
+@media (max-width:900px){html.figma .hgal-track{flex-direction:column;overflow:visible} html.figma .proj,html.figma .proj-end{width:100%;max-width:none}}
 
 /* intro resting states */
 html.intro .nav{opacity:0;translate:-50% -12px}
@@ -938,7 +952,8 @@ html.js [data-split].in .wi{translate:0 0}
   var WA_NUMBER = '5584920036292';
   var WA_TEXT = 'Oi, Israel! Vi seu site e quero um orçamento.';
   var WA_URL = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(WA_TEXT);
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var figma = document.documentElement.classList.contains('figma');
+  var reduce = figma || matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = matchMedia('(hover:hover) and (pointer:fine)').matches;
   var $ = function(s, c){return (c||document).querySelector(s)};
   var $$ = function(s, c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
@@ -1251,6 +1266,8 @@ html.js [data-split].in .wi{translate:0 0}
       cards.forEach(function(c){ vio.observe(c); });
     }
   })();
+
+  if (figma){ var f0 = $('.faq-i'); if (f0){ f0.classList.add('open'); $('button', f0).setAttribute('aria-expanded', 'true'); } }
 
   /* FAQ accordion */
   $$('.faq-i button').forEach(function(b){
