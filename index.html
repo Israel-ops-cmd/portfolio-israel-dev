@@ -215,8 +215,11 @@ html.intro .me{opacity:0;translate:-50% 30px}
 .mock-bar{height:34px;flex:none;display:flex;align-items:center;gap:6px;padding:0 14px;background:var(--ink)}
 .mock-bar i{width:8px;height:8px;border-radius:50%;background:rgba(242,240,235,.2)}
 .mock-bar i:first-child{background:var(--lime)}
-.mock-bar span{margin-left:10px;flex:1;max-width:220px;height:20px;border-radius:6px;background:var(--ink-2);font-size:.66rem;color:var(--muted);display:flex;align-items:center;padding:0 10px}
-.mock-page{flex:1;padding:22px}
+.mock-bar span{margin-left:10px;flex:1;max-width:260px;white-space:nowrap;overflow:hidden;height:20px;border-radius:6px;background:var(--ink-2);font-size:.66rem;color:var(--muted);display:flex;align-items:center;padding:0 10px}
+.mock-page{flex:1;position:relative;overflow:hidden;background:#0d2240}
+.mock-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.vis.in .mock-shot{animation:shotScroll 16s cubic-bezier(.45,0,.25,1) .8s infinite alternate}
+@keyframes shotScroll{0%,10%{object-position:50% 0}90%,100%{object-position:50% 100%}}
 .mp-hero{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:center}
 .mp-img{aspect-ratio:4/5;border-radius:12px;background:linear-gradient(160deg,rgba(200,255,61,.22),rgba(242,240,235,.06) 60%);border:1px solid var(--line)}
 .vis .g,.vis .s{transform-origin:0 50%;scale:0 1;transition:scale 1s var(--expo)}
@@ -230,6 +233,7 @@ html.intro .me{opacity:0;translate:-50% 30px}
 .toast i svg{width:20px;height:20px}
 .toast span{font-size:.8rem;line-height:1.35;color:var(--muted-d)}
 .toast b{display:block;color:var(--ink);font-size:.86rem}
+@media (max-width:700px){.toast{right:10px;bottom:10px;max-width:200px;gap:8px;padding:8px 12px 8px 8px;border-radius:12px} .toast i{width:28px;height:28px} .toast i svg{width:16px;height:16px} .toast b{font-size:.74rem} .toast span{font-size:.68rem}}
 .vis.in .toast{opacity:1;translate:0 0;scale:1}
 /* 02 shop mock */
 .shop{position:absolute;inset:clamp(18px,2.4vw,32px);display:flex;flex-direction:column;gap:14px}
@@ -678,14 +682,8 @@ html.js [data-split].in .wi{translate:0 0}
         </div>
         <div class="scard-vis vis" aria-hidden="true">
           <div class="mock">
-            <div class="mock-bar"><i></i><i></i><i></i><span>suaempresa.com.br</span></div>
-            <div class="mock-page">
-              <div class="mp-nav"><b></b><span></span><span></span><span></span></div>
-              <div class="mp-hero">
-                <div class="mp-txt"><i class="g w90"></i><i class="g w70"></i><i class="s w80"></i><i class="s w60"></i><span class="mp-cta">Chamar no WhatsApp</span></div>
-                <div class="mp-img"></div>
-              </div>
-            </div>
+            <div class="mock-bar"><i></i><i></i><i></i><span>Tributos Contabilidade · site real</span></div>
+            <div class="mock-page"><img class="mock-shot" src="assets/projetos/tributos-scroll.webp" width="800" height="2250" loading="lazy" alt="Landing page da Tributos Contabilidade, feita por Israel Araújo"></div>
             <div class="toast"><i><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></i><span><b>Novo contato pelo site</b>Oi! Quero um orçamento.</span></div>
           </div>
         </div>
