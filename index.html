@@ -163,6 +163,12 @@ html.figma .proj-end{width:calc(50% - 14px);aspect-ratio:16/10}
 html.figma .faq-head{position:static}
 @media (max-width:900px){html.figma .hgal-track{flex-direction:column;overflow:visible} html.figma .proj,html.figma .proj-end{width:100%;max-width:none}}
 
+
+/* special section transitions (vars set on scroll) */
+main>section#sobre{background:var(--paper);border-radius:0;position:relative;isolation:isolate}
+#sobre::before{content:"";position:absolute;top:0;bottom:0;left:var(--sx,0px);right:var(--sx,0px);z-index:-1;background:var(--ink);border-radius:var(--sr,40px) var(--sr,40px) 0 0}
+main>section#orcamento{border-radius:var(--ax,40px) var(--ax,40px) 0 0 / var(--ay,40px) var(--ay,40px) 0 0}
+
 /* intro resting states */
 html.intro .nav{opacity:0;translate:-50% -12px}
 html.intro .h1 .ln>span{translate:0 105%}
@@ -1224,6 +1230,19 @@ html.js [data-split].in .wi{translate:0 0}
     }
     var heroBottom = $('.hero').getBoundingClientRect().bottom, fin = $('.final').getBoundingClientRect();
     waF.classList.toggle('hide', heroBottom > vh*0.35 || (fin.top < vh*0.8 && fin.bottom > 0) || menu.classList.contains('open'));
+    sectionTransitions(vh);
+  }
+  /* Special transitions: "Sobre" grows from a card to full width; final CTA top goes from arch to straight */
+  var sobre = $('#sobre'), finS = $('#orcamento');
+  function sectionTransitions(vh){
+    var w = innerWidth, small = w <= 700;
+    var p1 = reduce ? 1 : clamp((vh - sobre.getBoundingClientRect().top) / (vh * .85), 0, 1), e1 = 1 - Math.pow(1 - p1, 3);
+    sobre.style.setProperty('--sx', ((1 - e1) * (small ? 14 : Math.min(w * .07, 110))).toFixed(1) + 'px');
+    sobre.style.setProperty('--sr', (40 + (1 - e1) * (small ? 8 : 40)).toFixed(1) + 'px');
+    var p2 = reduce ? 1 : clamp((vh - finS.getBoundingClientRect().top) / (vh * .75), 0, 1), e2 = 1 - Math.pow(1 - p2, 3);
+    var r = small ? 28 : 40;
+    finS.style.setProperty('--ax', (r + (1 - e2) * (w / 2 - r)).toFixed(1) + 'px');
+    finS.style.setProperty('--ay', (r + (1 - e2) * (small ? 60 : 150)).toFixed(1) + 'px');
   }
   track.addEventListener('scroll', function(){ if (innerWidth <= 900) galProgress(track.scrollLeft / Math.max(1, track.scrollWidth - track.clientWidth)); }, {passive:true});
   if (reduce){ tlSteps.forEach(function(st){st.classList.add('on')}); tlFill.style.scale = '1 1'; }
