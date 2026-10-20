@@ -29,6 +29,7 @@
   }
 </script>
 <style>
+@font-face{font-family:'Montserrat Fallback';src:local('Arial');size-adjust:113.4%;ascent-override:85.79%;descent-override:22.25%;line-gap-override:0%}
 @font-face{font-family:'Montserrat';font-style:normal;font-weight:400 900;font-display:swap;src:url(assets/fonts/montserrat-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
   --ink:#0B0B0F; --paper:#F2F0EB; --lime:#C8FF3D;
@@ -45,7 +46,7 @@ html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis.lenis-stopped{overflow:hidden}
 .lenis.lenis-smooth iframe{pointer-events:none}
-body{font-family:Montserrat,system-ui,sans-serif;font-weight:400;background:var(--ink);color:var(--paper);
+body{font-family:Montserrat,'Montserrat Fallback',system-ui,sans-serif;font-weight:400;background:var(--ink);color:var(--paper);
   -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -165,8 +166,8 @@ html.figma .faq-head{position:static}
 /* intro resting states */
 html.intro .nav{opacity:0;translate:-50% -12px}
 html.intro .h1 .ln>span{translate:0 105%}
-html.intro .lead,html.intro .type,html.intro .ctas,html.intro .proof{opacity:0;translate:0 14px}
-@media (max-width:700px){html.intro .lead{opacity:1;translate:none}}
+html.intro .type,html.intro .ctas,html.intro .proof{opacity:0;translate:0 14px}
+html.intro .lead{translate:0 14px}
 html.intro .ring{opacity:0;translate:0 24px}
 html.intro .me{opacity:0;translate:-50% 30px}
 
@@ -1181,7 +1182,8 @@ html.js [data-split].in .wi{translate:0 0}
   addEventListener('resize', layout);
   document.addEventListener('visibilitychange', function(){last = performance.now();});
   if ('IntersectionObserver' in window) new IntersectionObserver(function(e){heroVisible = e[0].isIntersecting;}).observe($('.hero'));
-  if (!reduce) requestAnimationFrame(function(t){last = t; requestAnimationFrame(loop);});
+  function startRing(){ requestAnimationFrame(function(t){last = t; requestAnimationFrame(loop);}); }
+  if (!reduce){ if (document.readyState === 'complete') startRing(); else addEventListener('load', startRing); }
 
   /* Scroll driven: stacking cards, horizontal gallery, fill text, WA button */
   var tl = $('#tl'), tlFill = $('#tlFill'), tlSteps = $$('.tl-step');
@@ -1318,7 +1320,7 @@ html.js [data-split].in .wi{translate:0 0}
     function Y(px){return '0 ' + (px*D) + 'px'}
     play(nav, {opacity:0, translate:'-50% -12px'}, {opacity:1, translate:'-50% 0'}, 700, 60);
     $$('.h1 .ln>span').forEach(function(s, i){ play(s, {translate:'0 105%'}, {translate:'0 0'}, 1000, 200 + i*110); });
-    if (D === 1) play($('.lead'), {opacity:0, translate:Y(14)}, {opacity:1, translate:'0 0'}, 800, 560);
+    play($('.lead'), {translate:Y(14)}, {translate:'0 0'}, 800, 560);
     play($('.type'), {opacity:0, translate:Y(14)}, {opacity:1, translate:'0 0'}, 800, 640);
     play($('.hero .ctas'), {opacity:0, translate:Y(14)}, {opacity:1, translate:'0 0'}, 800, 720);
     play($('.hero .proof'), {opacity:0, translate:Y(14)}, {opacity:1, translate:'0 0'}, 800, 800);
