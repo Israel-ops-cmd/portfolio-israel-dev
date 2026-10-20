@@ -298,6 +298,9 @@ html.intro .me{opacity:0;translate:-50% 30px}
 .old-links{margin-top:14px;font-size:.8rem;color:#2a2a8a}
 .old-btn{display:inline-block;margin-top:16px;padding:8px 14px;background:linear-gradient(#f0f0f0,#c8c8c8);border:2px outset #aaa;font-size:.8rem;font-weight:700}
 .ba-new{background:var(--ink-3);clip-path:inset(0 0 0 var(--p))}
+.ba-old:has(.ba-shot),.ba-new:has(.ba-shot){padding:0}
+.ba-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0 0}
+.ba-tag{z-index:1}
 .new-h{font-weight:900;font-size:clamp(1.3rem,2.1vw,1.9rem);line-height:1.05;letter-spacing:-.03em;max-width:12ch;margin-bottom:16px}
 .ba-new .s{scale:1 1}
 .ba-tag{position:absolute;bottom:16px;left:16px;font-family:Montserrat,sans-serif;font-size:.72rem;font-weight:700;padding:6px 12px;border-radius:99px;background:#333;color:#fff}
@@ -741,18 +744,12 @@ html.js [data-split].in .wi{translate:0 0}
         </div>
         <div class="scard-vis vis" aria-hidden="true"><div class="ba" id="ba">
           <div class="ba-old">
-            <div class="old-head">BEM VINDO AO NOSSO SITE!!!</div>
-            <div class="old-row"><i></i><p>Somos uma empresa com anos de experiência no mercado oferecendo soluções de qualidade para nossos clientes.</p></div>
-            <div class="old-links"><u>Home</u> | <u>Quem somos</u> | <u>Serviços</u> | <u>Contato</u></div>
-            <div class="old-btn">CLIQUE AQUI</div>
-            <span class="ba-tag">Antes</span>
+            <img class="ba-shot" src="assets/projetos/vtorres-antes.webp" width="960" height="600" loading="lazy" alt="">
+            <span class="ba-tag">V Torres antes</span>
           </div>
           <div class="ba-new">
-            <div class="mp-nav"><b></b><span></span><span></span><span></span></div>
-            <div class="new-h">Sua empresa, do tamanho que ela é.</div>
-            <i class="s w70"></i><i class="s w50"></i>
-            <span class="mp-cta">Pedir orçamento</span>
-            <span class="ba-tag lime">Depois</span>
+            <img class="ba-shot" src="assets/projetos/vtorres-depois.webp" width="960" height="600" loading="lazy" alt="">
+            <span class="ba-tag lime">V Torres hoje</span>
           </div>
           <div class="ba-line"><span></span></div>
         </div></div>
