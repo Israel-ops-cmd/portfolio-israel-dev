@@ -362,6 +362,15 @@ html.intro .me{opacity:0;translate:-50% 30px}
 .hgal-head .h2{max-width:22ch;font-size:clamp(2rem,min(4.2vw,7.2vh),4rem)}
 .proj.shot:hover .proj-img{transform:perspective(1400px) rotateY(-3deg) rotateX(2deg) translateY(-6px)}
 .proj.shot:hover .proj-img img{scale:1}
+.proj-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;opacity:0;transition:opacity .7s var(--expo)}
+.proj.playing .proj-vid{opacity:1}
+.proj-img::after{transition:opacity .7s}
+.proj-img::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .7s;background:linear-gradient(180deg,rgba(11,11,15,0) 22%,rgba(11,11,15,.8) 46%,rgba(11,11,15,.97) 62%)}
+.proj.playing .proj-img::before{opacity:1}
+.proj.shot .proj-img::before{display:none}
+.proj-live{position:absolute;left:clamp(20px,2.6vw,36px);top:clamp(18px,2.4vw,30px);z-index:2;display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(11,11,15,.72);backdrop-filter:blur(8px);border:1px solid var(--line);font-size:.78rem;font-weight:700;color:var(--paper);opacity:0;translate:0 -6px;transition:opacity .5s,translate .5s var(--expo)}
+.proj-live i{width:7px;height:7px;border-radius:50%;background:var(--lime);animation:live 1.8s infinite}
+.proj.playing .proj-live{opacity:1;translate:0 0}
 .proj-n{position:absolute;right:clamp(20px,2.6vw,34px);top:clamp(18px,2.4vw,30px);font-weight:900;font-size:.95rem;color:var(--paper);opacity:.8}
 .proj-end{position:relative;width:min(34vw,520px,calc((100svh - 340px)*1));flex:none;aspect-ratio:auto;border-radius:var(--r-lg);background:var(--ink);color:var(--paper);padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;justify-content:flex-end;gap:28px}
 .proj-end .proj-n{color:var(--lime)}
@@ -403,12 +412,57 @@ html.intro .me{opacity:0;translate:-50% 30px}
 .tl-step h3{font-weight:900;font-size:clamp(1.6rem,2.6vw,2.4rem);letter-spacing:-.03em;line-height:1.05;margin:4px 0 10px;opacity:.35;transition:opacity .5s}
 .tl-step p{color:var(--muted-d);max-width:40ch;opacity:.35;transition:opacity .5s}
 .tl-step.on h3,.tl-step.on p{opacity:1}
+/* faq */
+.faq{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,7vw,120px);align-items:start}
+.faq-head{position:sticky;top:120px}
+.faq-head .body{margin:22px 0 30px}
+.faq-list{border-top:1px solid var(--line)}
+.faq-i{border-bottom:1px solid var(--line)}
+.faq-i h3{font:inherit}
+.faq-i button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;text-align:left;font-weight:700;font-size:clamp(1.02rem,1.4vw,1.25rem);letter-spacing:-.01em;color:var(--paper);background:none;border:0;cursor:pointer;transition:color .3s}
+.faq-i button:hover{color:var(--lime)}
+.faq-x{position:relative;flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);transition:background .4s,border-color .4s,rotate .5s var(--expo)}
+.faq-x::before,.faq-x::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:currentColor;border-radius:2px}
+.faq-x::after{rotate:90deg;transition:rotate .5s var(--expo)}
+.faq-i.open .faq-x{background:var(--lime);border-color:var(--lime);color:var(--ink);rotate:180deg}
+.faq-i.open .faq-x::after{rotate:0deg}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s var(--expo)}
+.faq-a>div{overflow:hidden}
+.faq-a p{color:var(--muted);max-width:56ch;padding:0 50px 26px 0;opacity:0;translate:0 -6px;transition:opacity .4s,translate .5s var(--expo)}
+.faq-i.open .faq-a{grid-template-rows:1fr}
+.faq-i.open .faq-a p{opacity:1;translate:0 0;transition-delay:.08s}
+
 /* final cta */
 .final{padding:clamp(110px,16vw,220px) 0;overflow:hidden}
 .final .h2{font-size:clamp(2.3rem,5.6vw,5.6rem);max-width:16ch;letter-spacing:-.03em}
 .final .body{margin-top:28px}
 .final .ctas{margin-top:40px}
 .final .btn-lime{min-height:64px;padding:0 34px;font-size:1.08rem}
+
+.final-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(40px,6vw,96px);align-items:center}
+.phone{justify-self:end;width:min(100%,360px);border-radius:38px;background:var(--ink);padding:10px;box-shadow:0 50px 90px -40px rgba(11,11,15,.55),0 0 0 1px rgba(11,11,15,.08);rotate:3deg;transition:rotate .8s var(--expo)}
+.phone:hover{rotate:0deg}
+.ph-top{display:flex;align-items:center;gap:12px;padding:16px 16px 14px;color:var(--paper)}
+.ph-top img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 18%;background:var(--ink-3)}
+.ph-top b{display:block;font-size:.95rem}
+.ph-top small{display:block;font-size:.76rem;color:var(--lime);min-height:1.2em}
+.ph-chat{height:390px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:16px 12px;border-radius:28px 28px 0 0;overflow:hidden;
+  background:radial-gradient(circle at 1px 1px,rgba(242,240,235,.05) 1px,transparent 0) 0 0/18px 18px,var(--ink-2);
+  -webkit-mask:linear-gradient(180deg,transparent 0,#000 48px);mask:linear-gradient(180deg,transparent 0,#000 48px)}
+.msg{max-width:84%;padding:10px 13px;border-radius:16px;font-size:.86rem;line-height:1.4;display:none}
+.msg.show{display:block;animation:msgIn .5s var(--expo) both}
+.msg.in{align-self:flex-start;background:var(--ink-3);color:var(--paper);border-bottom-left-radius:5px}
+.msg.out{align-self:flex-end;background:var(--lime);color:var(--ink);border-bottom-right-radius:5px;font-weight:700}
+@keyframes msgIn{from{opacity:0;translate:0 14px;scale:.94}to{opacity:1;translate:0 0;scale:1}}
+.typing{align-self:flex-start;display:none;gap:4px;padding:13px 14px;border-radius:16px;border-bottom-left-radius:5px;background:var(--ink-3)}
+.typing.show{display:flex;animation:msgIn .4s var(--expo) both}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:dot 1.1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{translate:0 0;opacity:.5}30%{translate:0 -4px;opacity:1}}
+.ph-bar{display:flex;align-items:center;gap:10px;padding:10px;border-radius:0 0 28px 28px;background:var(--ink-2);border-top:1px solid var(--line)}
+.ph-bar span{flex:1;padding:11px 16px;border-radius:999px;background:var(--ink-3);color:var(--muted);font-size:.85rem}
+.ph-bar i{width:40px;height:40px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center}
+.ph-bar svg{width:18px;height:18px}
 
 /* footer */
 .foot{border-top:1px solid var(--line);padding:48px 0 calc(48px + env(safe-area-inset-bottom))}
@@ -472,6 +526,10 @@ html.js [data-split].in .wi{translate:0 0}
   .t-e{grid-column:span 7}
 }
 @media (max-width:900px){
+  .faq,.final-grid{grid-template-columns:minmax(0,1fr)}
+  .faq-head{position:static}
+  .phone{justify-self:center;rotate:0deg}
+  .ph-chat{height:360px}
   .hero-grid{grid-template-columns:minmax(0,1fr);gap:0;align-items:start}
   .hero-copy{padding:118px 0 8px}
   .stage{min-height:0;height:min(124vw,600px)}
@@ -530,13 +588,13 @@ html.js [data-split].in .wi{translate:0 0}
 <header class="nav" id="nav">
   <a href="#inicio" class="brand" aria-label="Israel Araújo, início"><i></i>Israel Araújo</a>
   <nav class="nav-links" aria-label="Principal">
-    <a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#como-funciona">Como funciona</a>
+    <a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#como-funciona">Como funciona</a><a href="#perguntas">Dúvidas</a>
   </nav>
   <a class="btn btn-lime" data-wa data-magnetic href="#">Pedir orçamento</a>
   <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
 </header>
 <div class="menu" id="menu">
-  <a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#como-funciona">Como funciona</a>
+  <a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#como-funciona">Como funciona</a><a href="#perguntas">Dúvidas</a>
   <a class="btn btn-lime" data-wa href="#">Pedir orçamento pelo WhatsApp</a>
 </div>
 
@@ -726,50 +784,50 @@ html.js [data-split].in .wi{translate:0 0}
     <div class="hgal-track" id="track">
       <article class="proj shot" data-cursor="Abrir">
         <a class="proj-link" href="https://landing-page-tributos-irb5.vercel.app" target="_blank" rel="noopener" aria-label="Abrir o site da Tributos Contabilidade"></a>
-        <div class="proj-img"><img src="assets/projetos/w-tributos.webp" loading="lazy" width="1280" height="800" alt="Página inicial do site da Tributos Contabilidade"></div>
+        <div class="proj-img"><img src="assets/projetos/w-tributos.webp" loading="lazy" width="1280" height="800" alt="Página inicial do site da Tributos Contabilidade"><video class="proj-vid" data-src="assets/video/tributos" muted playsinline loop preload="none" aria-hidden="true"></video></div>
         <div class="proj-info">
           <div class="chips"><span>Landing page</span><span>Contabilidade</span></div>
           <h3>Tributos Contabilidade</h3>
           <p>Página que transforma visita em conversa no WhatsApp com um contador.</p>
           <span class="proj-btn">Ver site no ar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </div>
-        <span class="proj-n">01</span>
+        <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">01</span>
       </article>
       <article class="proj" data-cursor="Abrir">
         <a class="proj-link" href="https://lojacartaviva.com.br" target="_blank" rel="noopener" aria-label="Abrir a loja Carta Viva"></a>
-        <div class="proj-img"><img src="assets/projetos/w-cartaviva.webp" loading="lazy" width="1280" height="800" alt="Casal vestindo camisetas da loja Carta Viva"></div>
+        <div class="proj-img"><img src="assets/projetos/w-cartaviva.webp" loading="lazy" width="1280" height="800" alt="Casal vestindo camisetas da loja Carta Viva"><video class="proj-vid" data-src="assets/video/cartaviva" muted playsinline loop preload="none" aria-hidden="true"></video></div>
         <div class="proj-info">
           <div class="chips"><span>Loja virtual</span><span>Moda</span></div>
           <h3>Carta Viva</h3>
           <p>Loja de camisetas com catálogo, carrinho e painel para gerenciar os pedidos.</p>
           <span class="proj-btn">Ver site no ar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </div>
-        <span class="proj-n">02</span>
+        <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">02</span>
       </article>
       <article class="proj" data-cursor="Abrir">
         <a class="proj-link" href="https://landing-page-vtorres-v2.vercel.app" target="_blank" rel="noopener" aria-label="Abrir o site da V Torres"></a>
-        <div class="proj-img"><img src="assets/projetos/w-vtorres.webp" loading="lazy" width="1280" height="800" alt="Prédio da Prefeitura de Curral de Cima, obra entregue pela V Torres"></div>
+        <div class="proj-img"><img src="assets/projetos/w-vtorres.webp" loading="lazy" width="1280" height="800" alt="Prédio da Prefeitura de Curral de Cima, obra entregue pela V Torres"><video class="proj-vid" data-src="assets/video/vtorres" muted playsinline loop preload="none" aria-hidden="true"></video></div>
         <div class="proj-info">
           <div class="chips"><span>Site institucional</span><span>Construção</span></div>
           <h3>V Torres</h3>
           <p>Construtora mostrando as obras públicas que entregou, com contato direto.</p>
           <span class="proj-btn">Ver site no ar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </div>
-        <span class="proj-n">03</span>
+        <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">03</span>
       </article>
       <article class="proj" data-cursor="Abrir">
         <a class="proj-link" href="https://ferrari-landing-vert.vercel.app" target="_blank" rel="noopener" aria-label="Abrir o projeto conceito Ferrari Drive Experience"></a>
-        <div class="proj-img"><img src="assets/projetos/w-ferrari.webp" loading="lazy" width="1280" height="800" alt="Ferrari vermelha em showroom escuro"></div>
+        <div class="proj-img"><img src="assets/projetos/w-ferrari.webp" loading="lazy" width="1280" height="800" alt="Ferrari vermelha em showroom escuro"><video class="proj-vid" data-src="assets/video/ferrari" muted playsinline loop preload="none" aria-hidden="true"></video></div>
         <div class="proj-info">
           <div class="chips"><span>Projeto conceito</span><span>Alto padrão</span></div>
           <h3>Ferrari Drive Experience</h3>
           <p>Estudo de landing page para marca de luxo, com animações e fotos em destaque.</p>
           <span class="proj-btn">Ver site no ar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </div>
-        <span class="proj-n">04</span>
+        <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">04</span>
       </article>
       <div class="proj-end">
-        <span class="proj-n">05</span>
+        <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">05</span>
         <h3 class="h3">O próximo site no ar pode ser o seu.</h3>
         <a class="btn btn-lime" data-wa data-magnetic href="#">Pedir orçamento</a>
       </div>
@@ -817,12 +875,47 @@ html.js [data-split].in .wi{translate:0 0}
   </div>
 </section>
 
+<!-- PERGUNTAS FREQUENTES -->
+<section class="sec" id="perguntas">
+  <div class="wrap faq">
+    <div class="faq-head">
+      <h2 class="h2" data-split>Antes de chamar, você deve estar pensando nisso.</h2>
+      <p class="body rv">Não achou sua dúvida aqui? Me pergunta direto no WhatsApp.</p>
+      <a class="btn btn-ghost rv" data-wa data-magnetic href="#">Perguntar no WhatsApp</a>
+    </div>
+    <div class="faq-list rv">
+      <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq0" id="fb0">Quanto tempo leva para o site ficar pronto?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq0" role="region" aria-labelledby="fb0"><div><p>Uma landing page fica pronta, em média, em 7 dias úteis. Uma loja virtual, em 20 dias úteis.</p></div></div></div>
+      <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq1" id="fb1">Quanto custa?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq1" role="region" aria-labelledby="fb1"><div><p>Depende do que o seu negócio precisa. Depois de uma conversa rápida pelo WhatsApp, eu te mando o valor por escrito, sem compromisso.</p></div></div></div>
+      <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq2" id="fb2">Como funciona o pagamento?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq2" role="region" aria-labelledby="fb2"><div><p>50% de entrada para começar e 50% na entrega. Aceito Pix e cartão, inclusive parcelado, com os juros da maquininha.</p></div></div></div>
+      <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq3" id="fb3">E se eu quiser mudar alguma coisa depois?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq3" role="region" aria-labelledby="fb3"><div><p>Você tem 30 dias depois da entrega para me pedir ajustes no site.</p></div></div></div>
+      <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq4" id="fb4">Tem mensalidade?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq4" role="region" aria-labelledby="fb4"><div><p>Landing page não tem mensalidade. Lojas virtuais e automações têm uma manutenção mensal, para manter tudo funcionando.</p></div></div></div>
+      <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq5" id="fb5">Preciso cuidar de domínio e hospedagem?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq5" role="region" aria-labelledby="fb5"><div><p>Não. Eu cuido do domínio e da hospedagem para você.</p></div></div></div>
+      <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq6" id="fb6">Preciso ter logo, fotos e textos prontos?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq6" role="region" aria-labelledby="fb6"><div><p>Se tiver, ótimo. Se não tiver, eu te ajudo com os textos e com as fotos.</p></div></div></div>
+      <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq7" id="fb7">Você atende fora de Natal?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq7" role="region" aria-labelledby="fb7"><div><p>Sim. Atendo empresas de todo o Brasil, por WhatsApp e chamada de vídeo.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- CHAMADA FINAL -->
-<section class="final" id="orcamento">
-  <div class="wrap">
-    <h2 class="h2" data-split>Seu próximo cliente está procurando no Google agora. Ele vai achar você?</h2>
-    <p class="body rv">Me conta sobre o seu negócio pelo WhatsApp e eu te respondo com uma proposta feita para ele.</p>
-    <div class="ctas rv"><a class="btn btn-lime" data-wa data-magnetic href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Agendar conversa pelo WhatsApp</a></div>
+<section class="final paper" id="orcamento">
+  <div class="wrap final-grid">
+    <div>
+      <h2 class="h2" data-split>Seu próximo cliente está procurando no Google agora. Ele vai achar você?</h2>
+      <p class="body rv">Me conta sobre o seu negócio pelo WhatsApp e eu te respondo com uma proposta feita para ele.</p>
+      <div class="ctas rv"><a class="btn btn-lime" data-wa data-magnetic href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Agendar conversa pelo WhatsApp</a></div>
+    </div>
+    <div class="phone rv" aria-hidden="true">
+      <div class="ph-top"><img src="assets/israel-520.webp" width="40" height="40" alt="" loading="lazy"><div><b>Israel Araújo</b><small id="phSt">online</small></div></div>
+      <div class="ph-chat" id="chat">
+        <div class="msg out" data-d="600">Oi, Israel! Vi seu site. Quanto fica um site para a minha loja?</div>
+        <div class="msg in" data-d="1800">Oi! Me conta rapidinho: o que você vende e onde atende hoje?</div>
+        <div class="msg out" data-d="1600">Roupa feminina. Vendo pelo Instagram, mas queria um site.</div>
+        <div class="msg in" data-d="2200">Dá para fazer uma loja virtual com catálogo, carrinho e pagamento. Te mando a proposta por escrito, sem compromisso.</div>
+        <div class="msg out" data-d="1500">Fechado, pode mandar!</div>
+        <div class="typing"><i></i><i></i><i></i></div>
+      </div>
+      <div class="ph-bar"><span>Mensagem</span><i><svg viewBox="0 0 24 24"><path fill="currentColor" d="M3 20.5 21 12 3 3.5 3 10l12 2-12 2z"/></svg></i></div>
+    </div>
   </div>
 </section>
 </main>
@@ -830,7 +923,7 @@ html.js [data-split].in .wi{translate:0 0}
 <footer class="foot">
   <div class="wrap foot-grid">
     <div><a href="#inicio" class="brand"><i></i>Israel Araújo</a><p>Desenvolvimento web e web design. Atendimento online para todo o Brasil.</p><p>© 2026 Israel Araújo</p></div>
-    <nav aria-label="Rodapé"><a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#como-funciona">Como funciona</a><a href="#" data-wa>WhatsApp (84) 92003-6292</a></nav>
+    <nav aria-label="Rodapé"><a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#como-funciona">Como funciona</a><a href="#perguntas">Dúvidas</a><a href="#" data-wa>WhatsApp (84) 92003-6292</a></nav>
   </div>
 </footer>
 
@@ -1143,6 +1236,57 @@ html.js [data-split].in .wi{translate:0 0}
   } else { $$('.cur,.cur-ring').forEach(function(c){c.remove()}); }
 
   /* Intro timeline */
+  /* Project previews: hover on desktop, in view on touch */
+  (function(){
+    var cards = $$('.proj').filter(function(c){return c.querySelector('.proj-vid')});
+    var ext = document.createElement('video').canPlayType('video/mp4; codecs="avc1.64001F"') ? '.mp4' : '.webm';
+    function load(v){ if (!v.src) v.src = v.getAttribute('data-src') + ext; }
+    function on(c){ var v = c.querySelector('.proj-vid'); load(v); var pr = v.play(); if (pr && pr.catch) pr.catch(function(){}); c.classList.add('playing'); }
+    function off(c){ var v = c.querySelector('.proj-vid'); c.classList.remove('playing'); setTimeout(function(){ if (!c.classList.contains('playing')) v.pause(); }, 700); }
+    if (reduce) return;
+    if (finePointer){
+      cards.forEach(function(c){ c.addEventListener('mouseenter', function(){on(c)}); c.addEventListener('mouseleave', function(){off(c)}); });
+    } else if ('IntersectionObserver' in window){
+      var vio = new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting ? on(e.target) : off(e.target); }); }, {threshold: .65});
+      cards.forEach(function(c){ vio.observe(c); });
+    }
+  })();
+
+  /* FAQ accordion */
+  $$('.faq-i button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var it = b.closest('.faq-i'), open = !it.classList.contains('open');
+      $$('.faq-i.open').forEach(function(o){ if (o !== it){ o.classList.remove('open'); $('button', o).setAttribute('aria-expanded', 'false'); } });
+      it.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  /* WhatsApp chat in the final CTA */
+  (function(){
+    var chat = $('#chat'); if (!chat) return;
+    var msgs = $$('.msg', chat), typing = $('.typing', chat), st = $('#phSt'), timer = null, running = false;
+    function reset(){ msgs.forEach(function(m){m.classList.remove('show')}); typing.classList.remove('show'); st.textContent = 'online'; }
+    function run(){
+      reset(); var i = 0;
+      (function next(){
+        if (i >= msgs.length){ timer = setTimeout(run, 5000); return; }
+        var m = msgs[i], d = +m.getAttribute('data-d') || 1200, mine = m.classList.contains('in');
+        if (mine){ chat.appendChild(typing); typing.classList.add('show'); st.textContent = 'digitando...'; }
+        timer = setTimeout(function(){
+          typing.classList.remove('show'); st.textContent = 'online';
+          chat.insertBefore(m, typing); m.classList.add('show'); i++; next();
+        }, d);
+      })();
+    }
+    if (reduce){ msgs.forEach(function(m){m.classList.add('show')}); return; }
+    if ('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ es.forEach(function(e){
+        if (e.isIntersecting && !running){ running = true; run(); }
+        else if (!e.isIntersecting && running){ running = false; clearTimeout(timer); }
+      }); }, {threshold: .35}).observe(chat);
+    } else { msgs.forEach(function(m){m.classList.add('show')}); }
+  })();
+
   (function(){
     var root = document.documentElement;
     if (!root.classList.contains('intro')) return;
