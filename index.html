@@ -25,7 +25,9 @@
   if (/[?&]figma\b/.test(location.search)) document.documentElement.classList.add('figma');
   else if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.documentElement.classList.add('intro');
-    setTimeout(function(){document.documentElement.classList.remove('intro');}, 4000);
+    var seen = false; try { seen = sessionStorage.getItem('ia-ld') === '1'; } catch (e) {}
+    if (!seen) document.documentElement.classList.add('loading');
+    setTimeout(function(){document.documentElement.classList.remove('intro');}, seen ? 4000 : 7500);
   }
 </script>
 <style>
@@ -169,6 +171,23 @@ main>section#sobre{background:var(--paper);border-radius:0;position:relative;iso
 #sobre::before{content:"";position:absolute;top:0;bottom:0;left:var(--sx,0px);right:var(--sx,0px);z-index:-1;background:var(--ink);border-radius:var(--sr,40px) var(--sr,40px) 0 0}
 main>section#orcamento{border-radius:var(--ax,40px) var(--ax,40px) 0 0 / var(--ay,40px) var(--ay,40px) 0 0}
 
+/* loader */
+#ld{display:none}
+html.loading{overflow:hidden}
+html.loading #ld{display:grid;place-items:center;position:fixed;inset:0;z-index:9999;background:var(--ink);color:var(--paper);clip-path:inset(0 0 0 0);transition:clip-path 1s cubic-bezier(.76,0,.24,1)}
+#ld.out{clip-path:inset(0 0 100% 0)}
+.ld-in{display:flex;flex-direction:column;align-items:center;text-align:center;transition:opacity .5s,translate .8s cubic-bezier(.76,0,.24,1)}
+#ld.out .ld-in{opacity:0;translate:0 -40px}
+.ld-logo{width:76px;height:76px;border-radius:20px;box-shadow:0 0 0 1px var(--line),0 20px 60px rgba(0,0,0,.5);animation:ldPop .9s cubic-bezier(.16,1,.3,1) both}
+.ld-logo rect.dot{transform-box:fill-box;transform-origin:center;animation:ldDot 1.2s ease-in-out .5s infinite}
+.ld-name{margin-top:26px;font-size:1.6rem;font-weight:700;letter-spacing:-.02em;animation:ldUp .9s cubic-bezier(.16,1,.3,1) .12s both}
+.ld-role{margin-top:6px;font-size:.78rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;animation:ldUp .9s cubic-bezier(.16,1,.3,1) .22s both}
+.ld-bar{display:block;position:relative;width:120px;height:2px;margin-top:34px;background:var(--line);overflow:hidden;animation:ldUp .9s cubic-bezier(.16,1,.3,1) .3s both}
+.ld-bar span{position:absolute;inset:0;background:var(--lime);transform-origin:0 50%;transform:scaleX(var(--ldp,0))}
+.ld-n{font-style:normal;margin-top:18px;font-size:.8rem;font-weight:700;letter-spacing:.35em;padding-left:.35em;color:var(--muted);font-variant-numeric:tabular-nums;animation:ldUp .9s cubic-bezier(.16,1,.3,1) .36s both}
+@keyframes ldPop{from{opacity:0;scale:.7}}
+@keyframes ldUp{from{opacity:0;translate:0 14px}}
+@keyframes ldDot{50%{transform:scale(.55)}}
 /* intro resting states */
 html.intro .nav{opacity:0;translate:-50% -12px}
 html.intro .h1 .ln>span{translate:0 105%}
@@ -625,6 +644,13 @@ html.js [data-split].in .wi{translate:0 0}
 </style>
 </head>
 <body>
+<div id="ld" aria-hidden="true"><div class="ld-in">
+  <svg class="ld-logo" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#0B0B0F"/><text x="32" y="43" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-weight="900" font-size="30" letter-spacing="-2" fill="#F2F0EB">IA</text><rect class="dot" x="44" y="12" width="8" height="8" rx="2" fill="#C8FF3D"/></svg>
+  <b class="ld-name">Israel Araújo</b>
+  <span class="ld-role">Sites e web design</span>
+  <i class="ld-bar"><span></span></i>
+  <em class="ld-n" id="ldN">000</em>
+</div></div>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="nav" id="nav">
@@ -1037,6 +1063,10 @@ html.js [data-split].in .wi{translate:0 0}
     function raf(t){lenis.raf(t); requestAnimationFrame(raf);}
     requestAnimationFrame(raf);
     lenis.on('scroll', onScroll);
+    if (document.documentElement.classList.contains('loading')) {
+      lenis.stop();
+      var w = setInterval(function(){ if (!document.documentElement.classList.contains('loading')) { clearInterval(w); lenis.start(); } }, 100);
+    }
   });
   $$('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
@@ -1356,6 +1386,19 @@ html.js [data-split].in .wi{translate:0 0}
     var root = document.documentElement;
     if (!root.classList.contains('intro')) return;
     if (!Element.prototype.animate){root.classList.remove('intro'); return;}
+    var ld = $('#ld');
+    if (!root.classList.contains('loading') || !ld) { run(); return; }
+    try { sessionStorage.setItem('ia-ld', '1'); } catch (e) {}
+    var bar = $('.ld-bar span', ld), num = $('#ldN'), t0 = performance.now(), MIN = 1500, MAX = 2800, loaded = document.readyState === 'complete';
+    if (!loaded) addEventListener('load', function(){ loaded = true; });
+    (function tick(now){
+      var el = now - t0, target = loaded || el > MAX ? 1 : .9, k = Math.min(1, el / MIN);
+      var p = Math.min(target, 1 - Math.pow(1 - k, 3));
+      bar.style.setProperty('--ldp', p); num.textContent = String(Math.round(p * 100)).padStart(3, '0');
+      if (p >= 1) { setTimeout(function(){ ld.classList.add('out'); run(); setTimeout(function(){ root.classList.remove('loading'); }, 1000); }, 220); return; }
+      requestAnimationFrame(tick);
+    })(t0);
+    function run(){
     var D = innerWidth <= 700 ? .66 : 1, EXPO = 'cubic-bezier(.16,1,.3,1)', n = 0, lastAnim = null, lastEnd = 0;
     function play(el, from, to, dur, delay){
       if (!el) return;
@@ -1377,6 +1420,7 @@ html.js [data-split].in .wi{translate:0 0}
       root.classList.remove('intro');
     }
     if (lastAnim) lastAnim.finished.then(settle).catch(settle); else settle();
+    }
   })();
 })();
 </script>
