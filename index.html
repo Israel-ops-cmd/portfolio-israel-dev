@@ -10,7 +10,7 @@
 <link rel="canonical" href="https://portfolio-israel-dev.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Israel Araújo | Criação de sites e web design em Natal/RN">
+<meta property="og:title" content="Israel Araújo | Sites que fazem o cliente chamar você no WhatsApp">
 <meta property="og:description" content="Sites que fazem o cliente chamar você no WhatsApp. Design, código, Google Meu Negócio e automações.">
 <meta property="og:image" content="https://portfolio-israel-dev.vercel.app/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -500,6 +500,9 @@ html.intro .me{opacity:0;translate:-50% 30px}
 .final .h2{font-size:clamp(2.3rem,5.6vw,5.6rem);max-width:16ch;letter-spacing:-.03em}
 .final .body{margin-top:28px}
 .final .ctas{margin-top:40px}
+.cta-note{margin-top:14px;font-size:.86rem;opacity:.68}
+.sq{margin-top:14px;padding-left:12px;border-left:2px solid var(--lime);font-size:.92rem;font-style:italic;opacity:.85}
+.sq span{display:block;margin-top:4px;font-style:normal;font-size:.8rem;font-weight:700}
 .final .btn-lime{min-height:64px;padding:0 34px;font-size:1.08rem}
 
 .final-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(40px,6vw,96px);align-items:center}
@@ -623,6 +626,7 @@ html.js [data-split].in .wi{translate:0 0}
   .btn{white-space:normal;text-align:center;line-height:1.25;padding:12px 22px}
   .ctas .btn{width:100%}
   .proof{flex-wrap:wrap;gap:10px 14px}
+  .proof .sep{display:none}
   .nav{height:60px;top:10px;padding-left:20px}
   .menu{top:78px}
   .scard-vis{min-height:340px}
@@ -675,13 +679,14 @@ html.js [data-split].in .wi{translate:0 0}
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <h1 class="h1"><span class="ln"><span>Sites que fazem</span></span><span class="ln"><span>o cliente chamar</span></span><span class="ln"><span>você no <span class="mark">WhatsApp.</span></span></span></h1>
-      <p class="lead">Eu desenho e programo o site da sua empresa, coloco ela no Google e automatizo as tarefas que hoje tomam o seu tempo. Atendimento online para todo o Brasil.</p>
+      <p class="lead">Sua empresa já vende bem, mas na internet parece menor do que é? Eu faço o site, coloco você no Google e deixo o caminho pronto até o seu WhatsApp.</p>
       <p class="type" aria-live="off">Posso começar pelo seu <b id="tw">site</b><i class="caret" aria-hidden="true"></i></p>
       <div class="ctas">
         <a class="btn btn-lime" data-wa data-magnetic href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Pedir orçamento pelo WhatsApp</a>
         <a class="btn btn-ghost" href="#projetos">Ver projetos entregues</a>
       </div>
-      <div class="proof"><strong>+10</strong><span>projetos<br>entregues</span><span class="sep"></span><span>100% online<br>para todo o Brasil</span></div>
+      <p class="cta-note">Orçamento por escrito, sem compromisso. Você fala direto comigo.</p>
+      <div class="proof"><strong>+10</strong><span>projetos<br>entregues</span><span class="sep"></span><span>“Chegaram clientes pelo Google”<br>Lúcia, clínica de estética</span></div>
     </div>
     <div class="stage" id="stage">
       <div class="ring" id="ring" aria-hidden="true"></div>
@@ -702,14 +707,14 @@ html.js [data-split].in .wi{translate:0 0}
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2" data-split>Tudo que sua empresa precisa para vender pela internet, com uma pessoa só.</h2>
-      <a class="btn btn-ghost rv" data-wa href="#">Contar meu projeto</a>
+      <a class="btn btn-ghost rv" data-wa href="#">Pedir orçamento pelo WhatsApp</a>
     </div>
     <div class="stack" id="stack">
       <article class="scard">
         <div class="scard-txt">
           <span class="num">01</span>
-          <div><h3 class="h3">Site e landing page</h3><p class="body">Uma página que explica o que você faz em poucos segundos e leva o visitante direto para o seu WhatsApp.</p></div>
-          <a class="link" data-wa href="#">Quero um site</a>
+          <div><h3 class="h3">Site e landing page</h3><p class="body">Uma página que explica o que você faz em poucos segundos e leva o visitante direto para o seu WhatsApp.</p><p class="sq">“O site ficou sensacional. As vendas estão saindo bem mais rápido.” <span>Tamisa, contadora</span></p></div>
+          <a class="link" data-wa="Oi, Israel! Vi seu site e quero um site para a minha empresa." href="#">Quero um site</a>
         </div>
         <div class="scard-vis vis" aria-hidden="true">
           <div class="mock">
@@ -723,7 +728,7 @@ html.js [data-split].in .wi{translate:0 0}
         <div class="scard-txt">
           <span class="num">02</span>
           <div><h3 class="h3">Loja virtual</h3><p class="body">Seus produtos vendendo a qualquer hora, com catálogo, carrinho e pagamento, sem depender só do direct do Instagram.</p></div>
-          <a class="link" data-wa href="#">Quero uma loja</a>
+          <a class="link" data-wa="Oi, Israel! Vi seu site e quero uma loja virtual." href="#">Quero uma loja</a>
         </div>
         <div class="scard-vis vis" aria-hidden="true">
           <div class="shop">
@@ -740,8 +745,8 @@ html.js [data-split].in .wi{translate:0 0}
       <article class="scard">
         <div class="scard-txt">
           <span class="num">03</span>
-          <div><h3 class="h3">Google Meu Negócio</h3><p class="body">Sua empresa aparecendo no mapa e na busca quando alguém da sua cidade procura pelo que você vende.</p></div>
-          <a class="link" data-wa href="#">Quero aparecer no Google</a>
+          <div><h3 class="h3">Google Meu Negócio</h3><p class="body">Sua empresa aparecendo no mapa e na busca quando alguém da sua cidade procura pelo que você vende.</p><p class="sq">“Esse mês chegaram clientes pelo Google.” <span>Lúcia, clínica de estética</span></p></div>
+          <a class="link" data-wa="Oi, Israel! Vi seu site e quero aparecer no Google." href="#">Quero aparecer no Google</a>
         </div>
         <div class="scard-vis vis" aria-hidden="true"><div class="gmap">
           <div class="gsearch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg><span class="gq" data-q="loja de roupas perto de mim"></span></div>
@@ -756,7 +761,7 @@ html.js [data-split].in .wi{translate:0 0}
         <div class="scard-txt">
           <span class="num">04</span>
           <div><h3 class="h3">Automações e sistemas</h3><p class="body">Agendamentos, respostas, planilhas e cadastros que se fazem sozinhos, para você parar de perder horas com tarefa repetida.</p></div>
-          <a class="link" data-wa href="#">Quero automatizar</a>
+          <a class="link" data-wa="Oi, Israel! Vi seu site e quero automatizar umas tarefas da minha empresa." href="#">Quero automatizar</a>
         </div>
         <div class="scard-vis vis" aria-hidden="true"><div class="flow">
           <div class="step"><i><svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0F" stroke-width="3"><path d="m5 12 5 5 9-10"/></svg></i><span>Cliente pede orçamento no site<small>formulário ou WhatsApp</small></span></div>
@@ -767,8 +772,8 @@ html.js [data-split].in .wi{translate:0 0}
       <article class="scard">
         <div class="scard-txt">
           <span class="num">05</span>
-          <div><h3 class="h3">Site novo para quem já tem um fraco</h3><p class="body">Aquele site lento ou desatualizado refeito para passar a confiança que sua empresa tem de verdade.</p></div>
-          <a class="link" data-wa href="#">Quero refazer meu site</a>
+          <div><h3 class="h3">Seu site atual não passa confiança? Eu refaço.</h3><p class="body">Aquele site lento ou desatualizado refeito para passar a confiança que sua empresa tem de verdade.</p></div>
+          <a class="link" data-wa="Oi, Israel! Vi seu site e quero refazer o site da minha empresa." href="#">Quero refazer meu site</a>
         </div>
         <div class="scard-vis vis" aria-hidden="true"><div class="ba" id="ba">
           <div class="ba-old">
@@ -789,7 +794,7 @@ html.js [data-split].in .wi{translate:0 0}
 <!-- DIFERENCIAIS -->
 <section class="sec" id="diferenciais">
   <div class="wrap">
-    <div class="sec-head"><h2 class="h2" data-split>Quem desenha é quem programa. Nada se perde no caminho.</h2></div>
+    <div class="sec-head"><h2 class="h2" data-split>Uma pessoa só, do primeiro rascunho ao site no ar. O que você aprova é o que vai ao ar.</h2></div>
     <div class="bento">
       <article class="tile t-a rv">
         <div class="dc" id="dc" aria-hidden="true">
@@ -818,7 +823,7 @@ html.js [data-split].in .wi{translate:0 0}
       </article>
       <article class="tile t-c rv">
         <div class="year" aria-hidden="true">2026</div>
-        <div><h3 class="h3">Formação em TI</h3><p>Base técnica para ir além do site: sistemas, integrações e automações sob medida para o seu negócio.</p></div>
+        <div><h3 class="h3">Além do site</h3><p>Formação em TI para criar sistemas, integrações e automações sob medida para o seu negócio.</p></div>
       </article>
       <article class="tile t-d rv">
         <div class="speed" aria-hidden="true"><i></i></div>
@@ -857,7 +862,7 @@ html.js [data-split].in .wi{translate:0 0}
         <div class="proj-info">
           <div class="chips"><span>Loja virtual</span><span>Moda</span></div>
           <h3>Carta Viva</h3>
-          <p>Loja de camisetas com catálogo, carrinho e painel para gerenciar os pedidos.</p>
+          <p>Loja de camisetas que vende a qualquer hora, com os pedidos organizados num painel, sem depender do direct.</p>
           <span class="proj-btn">Ver site no ar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </div>
         <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">02</span>
@@ -868,7 +873,7 @@ html.js [data-split].in .wi{translate:0 0}
         <div class="proj-info">
           <div class="chips"><span>Site institucional</span><span>Construção</span></div>
           <h3>V Torres</h3>
-          <p>Construtora mostrando as obras públicas que entregou, com contato direto.</p>
+          <p>Construtora que trocou um site antigo por um que mostra as obras públicas entregues, com contato direto.</p>
           <span class="proj-btn">Ver site no ar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </div>
         <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">03</span>
@@ -887,7 +892,7 @@ html.js [data-split].in .wi{translate:0 0}
       <div class="proj-end">
         <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">05</span>
         <h3 class="h3">O próximo site no ar pode ser o seu.</h3>
-        <a class="btn btn-lime" data-wa data-magnetic href="#">Pedir orçamento</a>
+        <a class="btn btn-lime" data-wa="Oi, Israel! Vi seus projetos e quero um site assim." data-magnetic href="#">Pedir orçamento</a>
       </div>
     </div>
   </div>
@@ -901,9 +906,9 @@ html.js [data-split].in .wi{translate:0 0}
       <span class="badge">Atendimento online</span>
     </div>
     <div>
-      <h2 class="h2" data-split>Prazer, Israel Araújo.</h2>
-      <p class="fill-text" id="fill">Sou desenvolvedor web e web designer em Natal/RN. Trabalho com empresas que já vendem bem, mas que na internet ainda parecem menores do que são. Cuido de tudo: do primeiro rascunho ao site no ar, do Google Meu Negócio às automações que devolvem horas da sua semana.</p>
-      <div class="facts rv"><span>+10 projetos entregues</span><span>Formação em TI (2026)</span><span>Design e código</span></div>
+      <h2 class="h2" data-split>Prazer, Israel Araújo. Eu cuido do seu site do começo ao fim.</h2>
+      <p class="fill-text" id="fill">Sou desenvolvedor web e web designer. Atendo empresas de todo o Brasil e cuido de tudo: do primeiro rascunho ao site no ar, do Google Meu Negócio às automações que devolvem horas da sua semana.</p>
+      <div class="facts rv"><span>+10 projetos entregues</span><span>Formação em TI</span><span>Design e código</span></div>
     </div>
   </div>
   <div class="wrap deps">
@@ -946,7 +951,7 @@ html.js [data-split].in .wi{translate:0 0}
       <li class="tl-step"><span class="tl-dot"></span><em>01</em><h3>Conversa</h3><p>Você me conta sobre o seu negócio pelo WhatsApp ou numa chamada de vídeo rápida.</p></li>
       <li class="tl-step"><span class="tl-dot"></span><em>02</em><h3>Proposta</h3><p>Te mando o que vou fazer, o prazo e o valor, tudo por escrito e sem letra miúda.</p></li>
       <li class="tl-step"><span class="tl-dot"></span><em>03</em><h3>Layout</h3><p>Você vê e aprova o visual do site antes de eu escrever qualquer linha de código.</p></li>
-      <li class="tl-step"><span class="tl-dot"></span><em>04</em><h3>Site no ar</h3><p>Publico o site, conecto o seu WhatsApp e deixo a sua empresa aparecendo no Google.</p></li>
+      <li class="tl-step"><span class="tl-dot"></span><em>04</em><h3>Site no ar</h3><p>Publico o site, conecto o seu WhatsApp e deixo a sua empresa aparecendo no Google. Depois disso, você ainda tem 30 dias para pedir ajustes.</p></li>
     </ol>
   </div>
 </section>
@@ -957,11 +962,11 @@ html.js [data-split].in .wi{translate:0 0}
     <div class="faq-head">
       <h2 class="h2" data-split>Antes de chamar, você deve estar pensando nisso.</h2>
       <p class="body rv">Não achou sua dúvida aqui? Me pergunta direto no WhatsApp.</p>
-      <a class="btn btn-ghost rv" data-wa data-magnetic href="#">Perguntar no WhatsApp</a>
+      <a class="btn btn-ghost rv" data-wa="Oi, Israel! Vi seu site e tenho uma dúvida." data-magnetic href="#">Perguntar no WhatsApp</a>
     </div>
     <div class="faq-list rv">
       <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq0" id="fb0">Quanto tempo leva para o site ficar pronto?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq0" role="region" aria-labelledby="fb0"><div><p>Uma landing page fica pronta, em média, em 7 dias úteis. Uma loja virtual, em 20 dias úteis.</p></div></div></div>
-      <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq1" id="fb1">Quanto custa?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq1" role="region" aria-labelledby="fb1"><div><p>Depende do que o seu negócio precisa. Depois de uma conversa rápida pelo WhatsApp, eu te mando o valor por escrito, sem compromisso.</p></div></div></div>
+      <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq1" id="fb1">Quanto custa?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq1" role="region" aria-labelledby="fb1"><div><p>Depende do que o seu negócio precisa. Me conta pelo WhatsApp e eu te mando o valor por escrito, sem compromisso.</p></div></div></div>
       <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq2" id="fb2">Como funciona o pagamento?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq2" role="region" aria-labelledby="fb2"><div><p>50% de entrada para começar e 50% na entrega. Aceito Pix e cartão, inclusive parcelado, com os juros da maquininha.</p></div></div></div>
       <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq3" id="fb3">E se eu quiser mudar alguma coisa depois?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq3" role="region" aria-labelledby="fb3"><div><p>Você tem 30 dias depois da entrega para me pedir ajustes no site.</p></div></div></div>
       <div class="faq-i"><h3><button type="button" aria-expanded="false" aria-controls="fq4" id="fb4">Tem mensalidade?<span class="faq-x" aria-hidden="true"></span></button></h3><div class="faq-a" id="fq4" role="region" aria-labelledby="fb4"><div><p>Landing page não tem mensalidade. Lojas virtuais e automações têm uma manutenção mensal, para manter tudo funcionando.</p></div></div></div>
@@ -978,7 +983,8 @@ html.js [data-split].in .wi{translate:0 0}
     <div>
       <h2 class="h2" data-split>Seu próximo cliente está procurando no Google agora. Ele vai achar você?</h2>
       <p class="body rv">Me conta sobre o seu negócio pelo WhatsApp e eu te respondo com uma proposta feita para ele.</p>
-      <div class="ctas rv"><a class="btn btn-lime" data-wa data-magnetic href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Agendar conversa pelo WhatsApp</a></div>
+      <div class="ctas rv"><a class="btn btn-lime" data-wa data-magnetic href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Pedir orçamento pelo WhatsApp</a></div>
+      <p class="cta-note rv">Você aprova o layout antes. 30 dias de ajustes depois da entrega. Domínio e hospedagem por minha conta.</p>
     </div>
     <div class="phone rv" aria-hidden="true">
       <div class="ph-top"><img src="assets/israel-520.webp" width="40" height="40" alt="" loading="lazy"><div><b>Israel Araújo</b><small id="phSt">online</small></div></div>
@@ -1009,6 +1015,7 @@ html.js [data-split].in .wi{translate:0 0}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.28Z"/></symbol></svg>
 
 <script src="assets/js/lenis.min.js" defer></script>
+<script defer src="/_vercel/insights/script.js"></script>
 <script>
 (function(){
   var WA_NUMBER = '5584920036292';
@@ -1034,7 +1041,11 @@ html.js [data-split].in .wi{translate:0 0}
   if (document.fonts) document.fonts.ready.then(fitH1);
 
   /* WhatsApp links */
-  $$('[data-wa]').forEach(function(a){a.href = WA_URL; a.target = '_blank'; a.rel = 'noopener';});
+  $$('[data-wa]').forEach(function(a){
+    var t = a.getAttribute('data-wa');
+    a.href = t ? 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(t) : WA_URL;
+    a.target = '_blank'; a.rel = 'noopener';
+  });
 
   /* Starfield */
   function stars(el, n, blur, a0, a1){
