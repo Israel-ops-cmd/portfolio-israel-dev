@@ -6,6 +6,7 @@
 <title>Israel Araújo | Criação de sites e web design em Natal/RN</title>
 <meta name="description" content="Israel Araújo cria sites, lojas virtuais e automações para empresas de todo o Brasil, com atendimento online. Design e código feitos pela mesma pessoa. Peça seu orçamento pelo WhatsApp.">
 <meta name="theme-color" content="#0B0B0F">
+<meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://portfolio-israel-dev.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -33,7 +34,7 @@
 <style>
 @font-face{font-family:'Montserrat Fallback';src:local('Arial');size-adjust:113.4%;ascent-override:85.79%;descent-override:22.25%;line-gap-override:0%}
 @font-face{font-family:'Montserrat';font-style:normal;font-weight:400 900;font-display:swap;src:url(assets/fonts/montserrat-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-:root{
+:root{color-scheme:dark;
   --ink:#0B0B0F; --paper:#F2F0EB; --lime:#C8FF3D;
   --ink-2:#14141A; --ink-3:#1C1C24;
   --line:rgba(242,240,235,.12); --muted:rgba(242,240,235,.64);
@@ -290,6 +291,7 @@ html.intro .me{opacity:0;translate:-50% 30px}
 .place b{display:block;font-size:1.05rem;font-weight:900;letter-spacing:-.02em}
 .place small{display:block;color:var(--muted-d);font-size:.85rem}
 .place .acts{display:flex;gap:8px;margin-top:12px}
+@media (max-width:700px){.gsearch{left:6%;right:6%;top:7%;height:42px;padding:0 14px;font-size:.8rem;white-space:nowrap;overflow:hidden} .pin{top:30%;left:46%;width:38px;height:38px} .pin::after{inset:12px} .place{left:6%;right:6%;bottom:6%;padding:14px 16px;border-radius:14px} .place b{font-size:.98rem} .place small{font-size:.78rem;white-space:nowrap} .place .acts{margin-top:10px;gap:6px}}
 .place .acts span{font-size:.78rem;font-weight:700;padding:7px 12px;border-radius:999px;border:1.5px solid var(--line-d)}
 .place .acts span:first-child{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 /* 04 automation mock */
