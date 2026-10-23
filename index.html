@@ -777,12 +777,12 @@ html.js [data-split].in .wi{translate:0 0}
         </div>
         <div class="scard-vis vis" aria-hidden="true"><div class="ba" id="ba">
           <div class="ba-old">
-            <img class="ba-shot" src="assets/projetos/vtorres-antes.webp" width="960" height="600" loading="lazy" alt="">
-            <span class="ba-tag">V Torres antes</span>
+            <img class="ba-shot" src="assets/projetos/ebook-antes.webp" width="960" height="600" loading="lazy" alt="">
+            <span class="ba-tag">Antes</span>
           </div>
           <div class="ba-new">
-            <img class="ba-shot" src="assets/projetos/vtorres-depois.webp" width="960" height="600" loading="lazy" alt="">
-            <span class="ba-tag lime">V Torres hoje</span>
+            <img class="ba-shot" src="assets/projetos/ebook-depois.webp" width="960" height="600" loading="lazy" alt="">
+            <span class="ba-tag lime">Depois</span>
           </div>
           <div class="ba-line"><span></span></div>
         </div></div>
@@ -842,7 +842,7 @@ html.js [data-split].in .wi{translate:0 0}
   <div class="hgal-pin">
     <div class="wrap hgal-head">
       <h2 class="h2" data-split>Sites no ar, trabalhando pelos meus clientes.</h2>
-      <div class="hgal-meta rv"><span id="hgCount">01</span><span class="hg-bar"><i id="hgBar"></i></span><span>04</span></div>
+      <div class="hgal-meta rv"><span id="hgCount">01</span><span class="hg-bar"><i id="hgBar"></i></span><span>05</span></div>
     </div>
     <div class="hgal-track" id="track">
       <article class="proj shot" data-cursor="Abrir">
@@ -879,6 +879,17 @@ html.js [data-split].in .wi{translate:0 0}
         <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">03</span>
       </article>
       <article class="proj" data-cursor="Abrir">
+        <a class="proj-link" href="https://ebook-matematica-adriel.vercel.app" target="_blank" rel="noopener" aria-label="Abrir a página do e-book Matemática do Zero"></a>
+        <div class="proj-img"><img src="assets/projetos/w-ebook.webp" loading="lazy" width="1280" height="800" alt="Professor Adriel Lucas na página de vendas do e-book Matemática do Zero"><video class="proj-vid" data-src="assets/video/ebook" muted playsinline loop preload="none" aria-hidden="true"></video></div>
+        <div class="proj-info">
+          <div class="chips"><span>Página de vendas</span><span>Infoproduto</span></div>
+          <h3>Matemática do Zero</h3>
+          <p>E-book de um professor de matemática. A página antiga foi refeita do zero, com visual moderno e compra direta.</p>
+          <span class="proj-btn">Ver site no ar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </div>
+        <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">04</span>
+      </article>
+      <article class="proj" data-cursor="Abrir">
         <a class="proj-link" href="https://ferrari-landing-vert.vercel.app" target="_blank" rel="noopener" aria-label="Abrir o projeto conceito Ferrari Drive Experience"></a>
         <div class="proj-img"><img src="assets/projetos/w-ferrari.webp" loading="lazy" width="1280" height="800" alt="Ferrari vermelha em showroom escuro"><video class="proj-vid" data-src="assets/video/ferrari" muted playsinline loop preload="none" aria-hidden="true"></video></div>
         <div class="proj-info">
@@ -887,10 +898,10 @@ html.js [data-split].in .wi{translate:0 0}
           <p>Estudo de landing page para marca de luxo, com animações e fotos em destaque.</p>
           <span class="proj-btn">Ver site no ar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </div>
-        <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">04</span>
+        <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">05</span>
       </article>
       <div class="proj-end">
-        <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">05</span>
+        <span class="proj-live" aria-hidden="true"><i></i>Prévia do site</span><span class="proj-n">06</span>
         <h3 class="h3">O próximo site no ar pode ser o seu.</h3>
         <a class="btn btn-lime" data-wa="Oi, Israel! Vi seus projetos e quero um site assim." data-magnetic href="#">Pedir orçamento</a>
       </div>
@@ -1203,17 +1214,19 @@ html.js [data-split].in .wi{translate:0 0}
   }, 2800);
 
   /* 3D ring of project cards */
-  var U = {trib:'https://landing-page-tributos-irb5.vercel.app', cv:'https://lojacartaviva.com.br', vt:'https://landing-page-vtorres-v2.vercel.app', fer:'https://ferrari-landing-vert.vercel.app'};
+  var U = {trib:'https://landing-page-tributos-irb5.vercel.app', cv:'https://lojacartaviva.com.br', vt:'https://landing-page-vtorres-v2.vercel.app', fer:'https://ferrari-landing-vert.vercel.app', eb:'https://ebook-matematica-adriel.vercel.app'};
   var SHOTS = [
     {src:'tributos', name:'Tributos Contabilidade', kind:'Landing page', url:U.trib},
     {src:'ferrari', name:'Ferrari Drive Experience', kind:'Projeto conceito', url:U.fer},
     {src:'carta-viva-3', name:'Carta Viva', kind:'Loja virtual', url:U.cv},
     {src:'vtorres', name:'V Torres', kind:'Site institucional', url:U.vt},
+    {src:'ebook', name:'Matemática do Zero', kind:'Página de vendas', url:U.eb},
     {type:true, big:'Seu site pode ser o próximo', name:'Israel Araújo', kind:'Atendimento online'},
     {src:'ferrari-2', name:'Ferrari Drive Experience', kind:'Projeto conceito', url:U.fer},
     {src:'carta-viva', name:'Carta Viva', kind:'Loja virtual', url:U.cv},
     {src:'vtorres-2', name:'V Torres', kind:'Obras públicas', url:U.vt},
     {src:'tributos-2', name:'Tributos Contabilidade', kind:'Contabilidade', url:U.trib},
+    {src:'ebook-2', name:'Matemática do Zero', kind:'E-book', url:U.eb},
     {src:'ferrari-3', name:'Ferrari Drive Experience', kind:'Projeto conceito', url:U.fer},
     {src:'vtorres-3', name:'V Torres', kind:'Construtora', url:U.vt}
   ];
@@ -1264,7 +1277,7 @@ html.js [data-split].in .wi{translate:0 0}
   /* Scroll driven: stacking cards, horizontal gallery, fill text, WA button */
   var tl = $('#tl'), tlFill = $('#tlFill'), tlSteps = $$('.tl-step');
   var hgCount = $('#hgCount'), hgBar = $('#hgBar');
-  function galProgress(p){ var n = Math.min(4, 1 + Math.floor(p*4.2)); hgCount.textContent = '0' + n; hgBar.style.width = (25 + p*75).toFixed(1) + '%'; }
+  function galProgress(p){ var n = Math.min(5, 1 + Math.floor(p*5.2)); hgCount.textContent = '0' + n; hgBar.style.width = (20 + p*80).toFixed(1) + '%'; }
   var scards = $$('.scard'), hgal = $('#projetos'), track = $('#track'), waF = $('#waFloat'), lastY = scrollY;
   function sizeGallery(){
     if (innerWidth <= 900){hgal.style.height = ''; track.style.transform = ''; return;}
